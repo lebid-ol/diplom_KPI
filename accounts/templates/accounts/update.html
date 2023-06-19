@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-8 mx-auto">
+        <h4 class="text-center my-2">Налаштування</h4>
+        <form method="POST" action="">{% csrf_token %}
+            <div class="form-group">
+                {{form.as_p}}
+            </div>
+            <button type="submit" class="btn btn-primary">Зберегти</button>
+        </form>
+        <form method="POST" action="{% url 'accounts:delete' %}">{% csrf_token %}
+            <button type="submit" class="btn btn-danger my-3">Видалити</button>
+        </form>
+    </div>
+</div>
+
+<div class="row my-5">
+    <div class="col-md-8 mx-auto">
+        <p class="my-2">Якщо ви не знайшли необхідні Місто та Спеціальність,
+             ви можете заповнити форму нижче з вашими побажаннями. Після того,
+             як необхідні дані будуть додані, ви отримаєте лист на вказану вами електронну пошту.
+        </p>
+           <button class="btn btn-success"
+                  type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapsed" aria-expanded="false"
+                  aria-controls="collapsed">
+            Показати форму
+          </button>
+        </p>
+        <div class="collapse" id="collapsed">
+          <div class="card card-body">
+              <form method="POST" action="{% url 'accounts:contact' %} ">{% csrf_token %}
+                <div class="form-group">
+                {{ contact_form.as_p }}
+                </div>
+                <button type="submit" class="btn btn-primary">Відправити</button>
+              </form>
+          </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

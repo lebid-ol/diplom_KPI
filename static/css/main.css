@@ -1,0 +1,13 @@
+@font-face {
+    font-family: Lobster;
+    src: url(../fonts/Lobster-Regular.ttf);
+}
+#brand {
+    font-family: Lobster;
+    color: #32a852;
+
+}
+
+.text-justify {
+  text-align: justify;
+}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col"><h2 class="text-center my-3">Сервіс зі збору та розсилки вакансій</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8 mx-auto">
+         <p class="text-justify">
+                Щодня ми аналізуємо сайти з вакансіями згідно з налаштуваннями наших клієнтів.
+             Усі вакансії, які були опубліковані на таких сайтах за останню добу,
+             записуються в базу даних і розсилаються нашим підписникам, відповідно до їх побажань.
+             Ви можете переглянути актуальні вакансії просто обравши необхідне місто чи спеціальність.
+             Або, пройшовши нескладну <a href="{% url 'accounts:register' %}"> реєстрацію</a>,
+             отримувати щодня листа зі списком нових вакансій за останню добу відповідно до ваших потреб.
+        </p>
+        <form method="GET" action="{% url 'list' %}">
+            <div class="form-group">
+                {{form.as_p}}
+            </div>
+            <button type="submit" class="btn btn-primary">Знайти</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
